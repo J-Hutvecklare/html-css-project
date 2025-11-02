@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EV Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳至主要内容</a>
+    <header class="header">
+        <h1 class="logo">
+            <a href="/index.html" aria-label="EV Explorer-Back to homepage">
+                EV Explorer
+            </a>
+        </h1>
+
+            <!--Navigation Menu-->
+        <nav class="nav" role="navigation" aria-label="main navigation">
+            <!--Hamburger Menu-->
+            <input type="checkbox" class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle menu">
+            <label for="hamburger-toggle" class="hamburger" aria-label="Toggle main navigation menu">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </label>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/index.html" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="/EV Brands.html">EV Brands</a></li>
+                <li class="nav-item"><a href="/survey.html">Survey</a></li>
+                    
+            </ul>
+                
+        </nav>
+    </header>
+    
+    <!-- Main -->
+    <main id="main-content" class="main-content">
+        <section class="hero-gallery" role="region" aria-label="Hero picture gallery">
+            <!-- 画廊容器 -->
+            <div class="gallery-container">
+                <!-- 1st Slide：图片 + 文字叠加 -->
+                <div class="slide" id="slide1">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./img/img1-mobile_tesla.jpg">
+                        <img src="./img/img1_tesla.jpg" alt="Tesla" loading="eager">
+                    </picture>
+                    <div class="slide-content">
+                        <h1>Tesla</h1>
+                    </div>
+                </div>
+
+                <!-- 2nd Slide：图片 + 文字叠加 -->
+                <div class="slide" id="slide2">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./img/img2-mobile_nio.jpg">
+                        <img src="./img/img2_nio.jpg" alt="Nio ES8" loading="eager">
+                    </picture>
+                
+                    <div class="slide-content">
+                        <h1>NIO</h1>
+                    </div>
+                </div>
+               
+                <!-- 3rd Slide：图片 + 文字叠加 -->
+                <div class="slide" id="slide3">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="img/img3-mobile_byd.jpg">
+                        <img src="./img/img3_byd.jpg" alt="BYD" loading="eager">
+                    </picture>
+                
+                    <div class="slide-content">
+                        <h1>BYD</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ 新增：纯CSS导航点 -->
+            <nav class="gallery-nav" aria-label="画廊导航">
+                <a href="#slide1" class="nav-dot" id="dot1"></a>
+                <a href="#slide2" class="nav-dot" id="dot2"></a>
+                <a href="#slide3" class="nav-dot" id="dot3"></a>
+            </nav>
+        </section>
+
+        <section class="content-grid" role="region" aria-label="Article">
+            <div class="article-container">
+                <article class="main-article">
+                    <h3 class="title">The Evolution of Electric Vehicles</h3>
+                    <br>
+                    <p>Electric vehicles (EVs) aren't new—they're a rebirth of a century-old idea, now electrified by modern technology. The Tesla Model S exemplifies this revolution, boasting an impressive range of up to 405 miles on a single charge, accelerating from 0 to 60 mph in a breathtaking 1.99 seconds, and integrating cutting-edge driver-assistance features like Autopilot. Its aerodynamic, sleek design not only turns heads but also maximizes efficiency, while its reliance on sustainable energy sources reduces carbon footprints. As a flagship model, the Model S has solidified Tesla's position as a pioneer in the EV market, inspiring competitors and accelerating the global shift toward cleaner, smarter transportation.</p>
+                    <br>
+                    <details class="tech-specs">
+                        <summary>The Modern EV Revolution</summary>
+                        <div class="details-content">
+                            <img src="./img/chart-1.jpg" alt="EV Market Growth Chart 2008-Present">
+                            <ul>
+                                <li>2008: Tesla Roadster proves EVs can be fast, sexy, and profitable.</li>
+                                <li>2010: Nissan Leaf makes EVs affordable and practical for families.</li>
+                                <li>2017: Chevy Bolt offers 250+ mile range under $30K.</li>
+                                <li>2020s: Every major automaker races to electrify—Ford F-150 Lightning, Rivian R1T, Porsche Taycan redefine performance and utility.</li>
+                            </ul>
+                        </div>   
+                    </details>
+
+                    <details class="tech-specs">
+                        <summary>Key Milestones</summary>
+                        <div class="details-content">
+                            <img src="./img/chart-2.jpg" alt="Key EV Milestones Chart">
+                            <ul>
+                                <li>Battery costs dropped 89% since 2010</li>
+                                <li>Global EV sales hit 14 million in 2023 (18% of new car sales)</li>
+                                <li>400+ new EV models launching by 2025</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="tech-specs">
+                        <summary>What's Powering the Surge?</summary>
+                        <div class="details-content">
+                            <ol>
+                                <li>Battery Breakthroughs: Solid-state batteries promise 500+ mile range and 10-minute charging</li>
+                                <li>Cost Parity: EVs now cheaper to own than gas cars in most markets</li>
+                                <li>Infrastructure Boom: 1.5M public chargers worldwide, growing 40% annually</li>
+                                <li>Policy Power: $400B+ in global EV incentives and mandates</li>
+                            </ol>
+                        </div>
+                    </details>
+
+                    <details class="tech-specs">
+                        <summary>The Next 5 Years: What to Expect</summary>
+                        <div class="details-content">
+                            <img src="./img/chart-3.jpg" alt="EV Future Forecast Chart 2025-2030">
+                            <ul>
+                                <li>2025: Sub-$20K EVs become reality</li>
+                                <li>2026: Wireless charging goes mainstream</li>
+                                <li>2027: 40% of new cars sold will be electric</li>
+                                <li>2028: Solid-state batteries in premium models</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details class="tech-specs">
+                        <summary>The 2030 Vision</summary>
+                        <div class="details-content">
+                            <ul>
+                                <li>80% of urban driving will be electric</li>
+                                <li>V2G technology turns EVs into home power plants</li>
+                                <li>Autonomous EV fleets transform mobility</li>
+                                <li>Battery recycling creates a circular economy</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                     <details class="tech-specs">
+                        <summary>Why EVs Are Unstoppable</summary>
+                        <div class="details-content">
+                            <img src="./img/chart-4.jpg" alt="EV Benefits Comparison Chart">
+                            <ul>
+                                <li>Zero tailpipe emissions = cleaner air</li>
+                                <li>70% lower operating costs vs. gas</li>
+                                <li>3x longer lifespan than gas engines</li>
+                                <li>Software updates keep cars getting better over time</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                </article>
+
+            </div>
+
+            <aside class="sidebar">
+                <h4>Read more information about EVs and battery technology, please click links below.</h4>
+                <a href="https://www.tesla.com/" target="_blank">Tesla</a>
+                <a href="https://www.nio.com/sv_SE" target="_blank">Nio</a>
+                <a href="https://www.byd.com/se" target="_blank">BYD</a>
+                <a href="https://www.catl.com/en/" target="_blank">CATL</a>
+
+            </aside>
+        </section>
+    </main>
+    <footer class="simple-footer">
+        <div class="footer-content">
+        <p>© 2025 EV Explorer. All rights reserved.</p>
+        <p class="email"><a href="mailto:contact@evexplorer.com">contact@evexplorer.com</a></p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

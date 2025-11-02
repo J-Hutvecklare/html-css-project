@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EV Explorer</title>
+    <link rel="stylesheet" href="./survey.css">
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳至主要内容</a>
+    <header class="header">
+        <!-- Logo -->
+        <h1 class="logo">
+            <a href="/index.html" aria-label="EV Explorer-Back to homepage">
+                EV Explorer
+            </a>
+        </h1>
+
+            <!--Navigation Menu-->
+        <nav class="nav" role="navigation" aria-label="main navigation">
+            <!--Hamburger Menu-->
+            <input type="checkbox" class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle menu">
+            <label for="hamburger-toggle" class="hamburger" aria-label="Toggle main navigation menu">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </label>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/index.html">Home</a></li>
+                <li class="nav-item"><a href="/EV Brands.html">EV Brands</a></li>
+                <li class="nav-item"><a href="/survey.html" aria-current="page">Survey</a></li>
+                    
+            </ul>
+                
+            </nav>
+        <!--</div>-->
+    </header>
+
+    <main id="main-content" class="main-content">
+        <section class="survey-container" aria-labelledby="survey-title">
+            <h1 id="survey-title" class="survey-title">EV User Survey</h1>
+            <p class="survey-subtitle">Help us understand your EV preferences!</p>
+
+            <form action="" method="POST" class="survey-form" novalidate>
+            <!-- 个人信息 -->
+                <fieldset class="form-section">
+                    <legend class="section-title">Personal Information</legend>
+
+                    <div class="input-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="e.g. Lisa" 
+                            required 
+                            aria-required="true"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="age">Age <span class="required">*</span></label>
+                        <input 
+                            type="number" 
+                            id="age" 
+                            name="age" 
+                            placeholder="e.g. 25" 
+                            min="16" 
+                            max="100" 
+                            required 
+                            aria-required="true"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="e.g. lisa@example.com" 
+                            required 
+                            aria-required="true"
+                        >
+                    </div>
+
+                    <div class="input-group radio-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <div class="radio-options">
+                            <label><input type="radio" name="gender" value="male" required> Male</label>
+                            <label><input type="radio" name="gender" value="female"> Female</label>
+                            <label><input type="radio" name="gender" value="secret"> Prefer not to say</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- 问题 1 -->
+                <fieldset class="form-section">
+                    <legend class="section-title">1. What do you value most about electric vehicles?</legend>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q1" value="range" required> Range</label>
+                        <label><input type="radio" name="q1" value="price"> Price</label>
+                        <label><input type="radio" name="q1" value="tech"> Technology</label>
+                        <label><input type="radio" name="q1" value="luxury"> Luxury Experience</label>
+                    </div>
+                </fieldset>
+
+                <!-- 问题 2 -->
+                <fieldset class="form-section">
+                    <legend class="section-title">2. What is your daily driving distance?</legend>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q2" value="under50" required> Under 50 km</label>
+                        <label><input type="radio" name="q2" value="50-100"> 50–100 km</label>
+                        <label><input type="radio" name="q2" value="over100"> Over 100 km</label>
+                    </div>
+                </fieldset>
+
+                <!-- 问题 3 -->
+                <fieldset class="form-section">
+                    <legend class="section-title">3. Which EV feature attracts you the most?</legend>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q3" value="fastcharge" required> Fast Charging</label>
+                        <label><input type="radio" name="q3" value="autopilot"> Autonomous Driving</label>
+                        <label><input type="radio" name="q3" value="eco"> Environmental Impact</label>
+                    </div>
+                </fieldset>
+
+                <!-- 问题 4 -->
+                <fieldset class="form-section">
+                    <legend class="section-title">4. What is your budget for buying a car in USD?</legend>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q4" value="under50k" required> Under 50,000</label>
+                        <label><input type="radio" name="q4" value="50k-100k"> 50,000–100,000</label>
+                        <label><input type="radio" name="q4" value="over100k"> Over 100,000</label>
+                    </div>
+                </fieldset>
+
+                <!-- 提交按钮 -->
+                <div class="submit-wrapper">
+                    <button type="submit" class="submit-btn">Submit Survey</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <br>
+    <footer class="simple-footer">
+        <div class="footer-content">
+        <p>© 2025 EV Explorer. All rights reserved.</p>
+        <p class="email"><a href="mailto:contact@evexplorer.com">contact@evexplorer.com</a></p>
+        </div>
+    </footer>
+    
+</body>
+</html>
