@@ -86,7 +86,6 @@ body {
 .nav {
   margin-top: auto;
   width: 100%;
-
 }
 
 
@@ -97,7 +96,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 30px;
+  right: 40px;
   padding: 4px;
   list-style: none;
   z-index: 1; 
@@ -129,7 +128,7 @@ body {
   cursor: pointer;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 10px;
   padding:10px;
 }
 
