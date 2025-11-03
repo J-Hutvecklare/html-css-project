@@ -26,8 +26,8 @@ body {
 .header {
   display: flex;
   flex-direction: column;
-  min-height: 90px;
-  padding: 0 1rem;
+  min-height: 66px;
+  padding: 0 0.8rem;
   margin: 0 auto;
   background-color: white;
   width: 100%;
@@ -40,11 +40,11 @@ body {
 } 
 
 .logo {
-  font-size: 1.6em;
+  font-size: 1.35em;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 4px;
   display: block;
 
   /* Fallback 颜色（关键！） */
@@ -97,7 +97,7 @@ body {
   bottom: 0;
   left: 0;
   right: 40px;
-  padding: 4px;
+  padding: 0px;
   list-style: none;
   z-index: 1; 
 }
@@ -107,7 +107,7 @@ body {
   display: block; /* 移动端占满宽度 */
   text-decoration: none;
   color:#333;
-  font-size: 1em;
+  font-size: 14px;
   padding: 6px 8px;
 }
 
@@ -129,16 +129,16 @@ body {
   position: absolute;
   bottom: 0;
   right: 10px;
-  padding:10px;
+  padding: 8px;
 }
 
 
 .hamburger__line {
   display: block;
-  width: 20px;
+  width: 16px;
   height: 2px;
   background-color: #333;
-  margin: 5px 0;
+  margin: 3.5px 0;
   transform-origin: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -150,13 +150,13 @@ body {
 
 /* 汉堡菜单动画：变为“X”形状 */
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px); /* 适配 10px 间距 */
+    transform: rotate(45deg) translate(4px, 4px); /* 适配 10px 间距 */
 }
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(2) {
     opacity: 0;
 }
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(4px, -4px);
 }
 
 /*  main */
@@ -210,7 +210,7 @@ body {
   position: relative;
   height: 100%;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .slide picture {
