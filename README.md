@@ -6,7 +6,8 @@ Live Demo: https://J-Hutvecklare.github.io/html-css-project/
 
 
 
-📋 Project Description
+Project Description:
+
 EV Explorer is a showcase website about electric vehicles, featuring three main pages:
     - Home (index.html) – Presents the history and trends of EV development, including an image gallery and expandable details
     - Brand Introduction (EV Brands.html) – Provides detailed introductions to Tesla, NIO, and BYD
@@ -16,8 +17,8 @@ This project is entirely built with HTML5 and CSS3, with zero JavaScript depende
 
 
 
-🎨 Design Decisions
-Color System
+Design Decisions:
+1. Color System
  -Primary Color: #007bff (Blue)
    -Conveys a sense of technology and trust
    -Used for links, buttons, and focus indicators
@@ -34,7 +35,7 @@ Color System
    -Creates visual contrast with main content
    -Defines the footer area clearly
 
-Typography System
+2. Typography System
  -Font Family: System font stack (sans-serif, system-ui, -apple-system)
    -Uses native system fonts for better performance
    -Ensures consistent appearance across platforms
@@ -51,32 +52,29 @@ Typography System
 
 
 Layout Strategy
-
-Mobile-First Design:
+1. Mobile-First Design:
  -Base styles for mobile first
  -Enhanced progressively for larger screens using media queries
 
-Layout Techniques:
+2.Layout Techniques:
  -Flexbox: Used for navigation, internal layouts, and galleries
  -CSS Grid: Used for desktop content grid (grid-template-columns: 1fr 300px)
 
-Responsive Breakpoints:
+3.Responsive Breakpoints:
  -768px: Tablet/Desktop switch
    -Header switches to horizontal layout
    -Navigation displayed inline
    -Content uses Grid layout
 
- -1024px: Large desktop optimization
+ -1200px: Large desktop optimization
    -Improves spacing and structure
 
 Container Width:
  -Max width: 1200px
  -Centered with auto margins 
 
-
-
- 🔧 CSS Interaction Patterns
-This project implements 4 pure CSS interaction patterns (exceeding the minimum of 2 required):
+CSS Interaction Patterns:
+ This project implements 4 pure CSS interaction patterns (exceeding the minimum of 2 required):
 
  1. Accordion (<details>/<summary>)
  Location: index.html → tech-specs component
@@ -125,46 +123,49 @@ This project implements 4 pure CSS interaction patterns (exceeding the minimum o
   -Accessibility:
     -Respects prefers-reduced-motion to disable motion for sensitive users
 
-♿ Accessibility Features
+
+Accessibility Features
 This project follows WCAG 2.1 AA standards:
 
-✅ Skip Link
+1. Skip Link
   -<a href="#main-content">Main content</a> on all pages
   -Visible when tabbed; quickly jumps to main content
 
-✅ Focus Styles (:focus-visible)
+2. Focus Styles (:focus-visible)
   -Clear focus indicators for all interactive elements
   -Controlled by CSS variable: --focus-outline-width: 3px
 
-✅ ARIA Labels
+3. ARIA Labels
   -aria-label for icon buttons and navigation
   -aria-current="page" for active links
   -role="navigation", role="region" for semantic structure
 
-✅ Image Alt Text
+4. Image Alt Text
   -All meaningful images include descriptive alt text
   -Charts have detailed alt descriptions (e.g. “EV Market Growth Chart 2008–Present”)
 
-✅ Semantic HTML
+5. Semantic HTML
   -Proper use of HTML5 structural elements
   -Logical heading hierarchy (h1 → h2 → h3)
 
-✅ Keyboard Navigation
+6. Keyboard Navigation
   -All interactive elements operable via keyboard
   -Logical tab order maintained
 
-✅ Reduced Motion Support
+7. Reduced Motion Support
   -Honors user motion preferences
   -Animations disabled when prefers-reduced-motion is set
 
 
-📁 File Structure
+File Structure
 
 html-css project/
 ├── index.html              # Home page – EV history & trends
-├── EV Brands.html          # Brand intro page – Tesla, NIO, BYD
+├── ev-brands.html          # Brand intro page – Tesla, NIO, BYD
 ├── survey.html             # User survey page – collects preferences
 ├── style.css               # Main stylesheet – shared across pages
+├── ev-brands.css 
+├── survey.css 
 ├── README.md               # Project documentation (this file)
 └── img/                    # Image assets
     ├── chart-1.jpg         # Chart 1: EV Market Growth
@@ -200,19 +201,20 @@ html-css project/
  -No JavaScript – 100% CSS-driven interactivity
 
 
- 🌐 Browser Support
+ Browser Support
 
-  ✅ Chrome / Edge – Fully supported (including experimental features)
-  ✅ Firefox – Fully supported
-  ✅ Safari – Fully supported
-  ✅ Mobile Browsers – Fully supported (iOS Safari, Chrome Mobile, etc.)
+  1. Chrome / Edge – Fully supported (including experimental features)
+  2. Firefox – Fully supported
+  3. Safari – Fully supported
+  4. Mobile Browsers – Fully supported (iOS Safari, Chrome Mobile, etc.)
   
   Note:
   -@scroll-timeline (gallery animation) is experimental and currently Chrome-only
   -All other core features are supported across modern browsers
 
 
-🔍 Core Features
+Core Features
+
   Responsive Images
     -Uses <picture> and srcset
     -Loads appropriate image sizes for mobile/desktop
@@ -232,7 +234,7 @@ html-css project/
 
 
 
-📦 Deployment
+Deployment
 
 Deploy via GitHub Pages
   -Push the project to your GitHub repository
@@ -245,10 +247,10 @@ Run Locally
 Simply open the HTML files directly in your browser — no server required.
 
 
-📝 License
+License
 © 2025 EV Explorer. All rights reserved.
 
-👤 Author
+Author
 EV Explorer Project
 
 
