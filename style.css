@@ -30,7 +30,8 @@ body {
   margin: 0 auto;
   background-color: #fff;
   max-width: 1200px;
-  /* 吸顶核心 */
+
+  /* Ceiling-mounted core */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -43,15 +44,17 @@ body {
   text-align: center;
   margin-top: 4px;
   display: block;
-  /* Fallback 颜色（关键！） */
+
+  /* Fallback color */
   color: #4d6784;
-  /* 渐变文本（仅支持的浏览器显示） */
+
+  /* Gradient text */
   background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
   background-size: 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent; /* 放在最后，仅在支持 clip 的浏览器生效 */
+  color: transparent; /* takes effect only in browsers that support clip */
 
   /* 动画背景移动 */
   animation: gradientShift 6s ease infinite;
@@ -62,7 +65,7 @@ body {
   transform: scale(1.05);
 }
 
-/* 背景动画 */
+/* background animation */
 @keyframes gradientShift {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -77,8 +80,8 @@ body {
 
 
 .nav-menu {
-  display: none; /* 默认隐藏，等待汉堡菜单触发 */
-  flex-direction: row; /* 垂直排列 */
+  display: none; /* Hidden by default, awaits hamburger menu trigger */
+  flex-direction: row;
   justify-content:flex-end;
   position: absolute;
   bottom: 0;
@@ -91,7 +94,7 @@ body {
 
 
 .nav-item a {  
-  display: block; /* 移动端占满宽度 */
+  display: block; 
   text-decoration: none;
   color:#333;
   font-size: 14px;
@@ -130,14 +133,14 @@ body {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 汉堡菜单触发时显示导航 */
+/* Display navigation when the hamburger menu is triggered */
 .hamburger-toggle:checked ~ .nav-menu {
     display: flex;
 }
 
-/* 汉堡菜单动画：变为“X”形状 */
+/* Hamburger Menu Animation: Transforming into an "X" Shape */
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px); /* 适配 10px 间距 */
+    transform: rotate(45deg) translate(4px, 4px); 
 }
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(2) {
     opacity: 0;
@@ -150,11 +153,11 @@ body {
 .main-content {
   margin-top: 10px;
 }
-/* Hero画廊 - 全宽 */
+/* Hero gallery- full width */
 .hero-gallery {
   position: relative;
   width: 100vw;
-  aspect-ratio: 16 / 9; /* 适配常见图片比例 */
+  aspect-ratio: 16 / 9; /* image aspect ratios */
   max-height: 80vh;
   overflow: hidden;
   margin-left: calc(50% - 50vw);
@@ -266,7 +269,7 @@ body {
 }
 
 
-/* 滚动时间线 */
+/* Scroll timeline */
 @scroll-timeline gallery-timeline {
   source: selector(.gallery-container);
   orientation: inline;
@@ -274,7 +277,7 @@ body {
   end: 200%;
 }
 
-/* 高亮动画 */
+/* Highlight Animation */
 @keyframes highlight-dot {
   from { background: hsla(0,0%,100%,.5); transform: scale(1); }
   to   { background: white; transform: scale(1.4); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
@@ -285,7 +288,7 @@ body {
 .nav-dot:hover { background: white !important; transform: scale(1.2) !important; }
 
 
-/* 内容网格 - 移动端单列 */
+/* Content Grid - Mobile Single Column */
 .content-grid {
   padding: 2rem 1rem;
 }
@@ -335,7 +338,7 @@ summary {
 }
 
 summary::-webkit-details-marker {
-    display: none; /* 隐藏 WebKit 默认箭头 */
+    display: none;  /* Hide WebKit's default arrow */
 }
 
 
@@ -354,7 +357,7 @@ summary::before {
 }
 
 details[open] summary::before {
-  transform: translateY(-50%) rotate(180deg); /* 展开时箭头向下 */
+  transform: translateY(-50%) rotate(180deg); /* Arrow points downward when expanded */
 }
 
 ul, ol {
@@ -392,11 +395,11 @@ summary:hover {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;        /* 文字水平居中 */
+  text-align: center;       
   color: #aaa;
 }
 
-    /* 确保 p 标签不影响居中 */
+/* Ensure that the p tag does not affect centering */
 .footer-content p {
   display: inline-block;
   width: 100%;
@@ -474,14 +477,14 @@ summary:focus-visible {
   }
 
   .nav {
-    margin-top: 0; /* 移除垂直推底效果 */
+    margin-top: 0; /* Remove vertical push-bottom effect */
     width: auto;
   }
 
   .nav-menu {
-    display: inline-flex; /* 水平排列 */
+    display: inline-flex;
     flex-direction: row;
-    position: static; /* 取消绝对定位 */
+    position: static; /* Cancel absolute positioning */
     width: auto;
     font-size: 1rem;
     gap: 15px;
@@ -492,7 +495,7 @@ summary:focus-visible {
   }
 
   .hamburger {
-    display: none; /* 隐藏汉堡菜单 */
+    display: none; /* Hide hamburger menu */
   }
 
   /* main - gallery */
@@ -517,7 +520,7 @@ summary:focus-visible {
     display: flex;
     gap: clamp(.5rem, 2vw, .75rem);
     z-index: 3;
-    pointer-events: none; /* 不干扰滑动 */
+    pointer-events: none; /* Do not interfere with sliding */
   }
 
   .nav-dot {

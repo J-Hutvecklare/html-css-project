@@ -8,6 +8,8 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Main content</a>
+
+    <!-- Header -->
     <header class="header">
         <h1 class="logo">
             <a href="./index.html" aria-label="EV Explorer-Back to homepage">
@@ -36,9 +38,10 @@
     <!-- Main -->
     <main id="main-content" class="main-content">
         <section class="hero-gallery" role="region" aria-label="Hero picture gallery">
-            <!-- 画廊容器 -->
+            <!-- gallery-container -->
             <div class="gallery-container">
-                <!-- 1st Slide：图片 + 文字叠加 -->
+
+                <!-- 1st Slide：img + words -->
                 <div class="slide" id="slide1">
                     <picture>
                         <source media="(max-width: 768px)" srcset="./img/img1-mobile_tesla.jpg">
@@ -49,7 +52,7 @@
                     </div>
                 </div>
 
-                <!-- 2nd Slide：图片 + 文字叠加 -->
+                <!-- 2nd Slide：img + words -->
                 <div class="slide" id="slide2">
                     <picture>
                         <source media="(max-width: 768px)" srcset="./img/img2-mobile_nio.jpg">
@@ -61,7 +64,7 @@
                     </div>
                 </div>
                
-                <!-- 3rd Slide：图片 + 文字叠加 -->
+                <!-- 3rd Slide：img + words -->
                 <div class="slide" id="slide3">
                     <picture>
                         <source media="(max-width: 768px)" srcset="img/img3-mobile_byd.jpg">
@@ -74,8 +77,8 @@
                 </div>
             </div>
 
-            <!-- ✅ 新增：纯CSS导航点 -->
-            <nav class="gallery-nav" aria-label="画廊导航">
+            <!-- navigation dot -->
+            <nav class="gallery-nav" aria-label="gallery navigation">
                 <a href="#slide1" class="nav-dot" id="dot1"></a>
                 <a href="#slide2" class="nav-dot" id="dot2"></a>
                 <a href="#slide3" class="nav-dot" id="dot3"></a>
@@ -89,6 +92,8 @@
                     <br>
                     <p>Electric vehicles (EVs) aren't new—they're a rebirth of a century-old idea, now electrified by modern technology. The Tesla Model S exemplifies this revolution, boasting an impressive range of up to 405 miles on a single charge, accelerating from 0 to 60 mph in a breathtaking 1.99 seconds, and integrating cutting-edge driver-assistance features like Autopilot. Its aerodynamic, sleek design not only turns heads but also maximizes efficiency, while its reliance on sustainable energy sources reduces carbon footprints. As a flagship model, the Model S has solidified Tesla's position as a pioneer in the EV market, inspiring competitors and accelerating the global shift toward cleaner, smarter transportation.</p>
                     <br>
+
+                <!-- Accordion  -->
                     <details class="tech-specs">
                         <summary>The Modern EV Revolution</summary>
                         <div class="details-content">
@@ -178,6 +183,8 @@
             </aside>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer class="simple-footer">
         <div class="footer-content">
         <p>© 2025 EV Explorer. All rights reserved.</p>
