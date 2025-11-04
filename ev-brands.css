@@ -12,6 +12,7 @@
   --focus-outline-offset: 2px;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
+  --radius-sm: 2px;
 
 }
 
@@ -311,12 +312,6 @@ th {
     margin: 0 auto;
     text-align: center;   
     color: #aaa;
-}
-
-/* 确保 p 标签不影响居中 */
-.footer-content p {
-    display: inline-block;
-    width: 100%;
 }
 
 
