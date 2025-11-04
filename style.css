@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   color: var(--color-text);
   line-height: 1.6;
 }
@@ -47,10 +47,11 @@ body {
   color: #4d6784;
   /* 渐变文本（仅支持的浏览器显示） */
   background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
-  background-size: 200%/*200%*/;
+  background-size: 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent; /* 放在最后，仅在支持 clip 的浏览器生效 */
 
   /* 动画背景移动 */
   animation: gradientShift 6s ease infinite;
@@ -146,7 +147,9 @@ body {
 }
 
 /*  main */
-
+.main-content {
+  margin-top: 10px;
+}
 /* Hero画廊 - 全宽 */
 .hero-gallery {
   position: relative;
@@ -155,6 +158,7 @@ body {
   max-height: 80vh;
   overflow: hidden;
   margin-left: calc(50% - 50vw);
+  
 }
 
 
@@ -170,6 +174,7 @@ body {
   overscroll-behavior-x: contain;
   scrollbar-width: none;
   -ms-overflow-style: none; 
+
 
 }
 
@@ -275,12 +280,7 @@ body {
   to   { background: white; transform: scale(1.4); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
 }
 
-/* 每个点的高亮区间 */
-/*
-.dot-1 { animation: highlight-dot 1s linear forwards; animation-timeline: gallery-timeline; animation-range: 0% 33.33%; }
-.dot-2 { animation: highlight-dot 1s linear forwards; animation-timeline: gallery-timeline; animation-range: 33.33% 66.66%; }
-.dot-3 { animation: highlight-dot 1s linear forwards; animation-timeline: gallery-timeline; animation-range: 66.66% 100%; }
-*/
+
 /* 点击反馈 */
 .nav-dot:hover { background: white !important; transform: scale(1.2) !important; }
 

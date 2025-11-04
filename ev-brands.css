@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+:root {
+  --color-primary: #007bff;
+  --color-text: #333;
+  --color-bg: #fff;
+  --focus-outline-width: 3px;
+  --focus-outline-offset: 2px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+
+}
 
 body {
     
@@ -42,20 +52,18 @@ body {
     display: block;
 
     /* Fallback 颜色（关键！） */
-    color: #007bff;
+    color: #4d6784;
 
     /* 渐变文本（仅支持的浏览器显示） */
     background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
-    background-size: 200% 200%;
+    background-size: 200%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent; /* 放在最后，仅在支持 clip 的浏览器生效 */
 
     /* 动画背景移动 */
-    background-position: 0% 50%;
     animation: gradientShift 6s ease infinite;
-    transition: transform 0.3s ease;
         
 }
 
@@ -74,12 +82,6 @@ body {
     .logo {
         animation: none;
     }
-}
-
-
-.nav {
-    margin-top: auto;
-    width: 100%;
 }
 
 
@@ -168,21 +170,23 @@ body {
 
 
 /* main */
-.skip-link {
-  /* 默认隐藏：移到屏幕外 */
-  position: absolute;
-  left: -9999px;
-}
 
-.skip-link:focus {
+/*.skip-link {
+  /* 默认隐藏：移到屏幕外 */
+  /* position: absolute;
+  /* left: -9999px;
+}*/
+
+/*.skip-link:focus {
   /* 按Tab时显示在左上角 */
-  position: fixed;
-  left: 1rem;
+  /*position: fixed;*/
+  /*left: 1rem;
   top: 1rem;
   background: #000;
   color: #fff;
   z-index: 1000;
-}
+}*/
+
 
 main {
     flex: 1;
@@ -326,7 +330,43 @@ th {
 text-decoration: underline;
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  left: var(--spacing-sm);
+  top: var(--spacing-sm);
+  width: auto;
+  height: auto;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: #000;
+  color: #fff;
+  z-index: 1000;
+  border-radius: var(--radius-sm);
+}
 
+/* Focus visible styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: var(--focus-outline-width) solid var(--color-primary);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* Current page highlight */
+.nav-item a[aria-current="page"] {
+  font-weight: bold;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
 
 /* Media query*/
 @media (min-width: 768px) {

@@ -1,15 +1,23 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
+:root {
+  --color-primary: #007bff;
+  --color-text: #333;
+  --color-bg: #fff;
+  --focus-outline-width: 3px;
+  --focus-outline-offset: 2px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+
 }
 
 body {
     font-family: system-ui, -apple-system, sans-serif;
-    color: #333;
+    color: var(--color-text);
     line-height: 1.6;
 }
 
@@ -20,8 +28,7 @@ body {
     min-height: 66px;
     padding: 0 0.8rem;
     margin: 0 auto;
-    background-color: white;
-    width: 100%;
+    background-color: white;    
     max-width: 1200px;
 
     /* 吸顶核心 */
@@ -43,16 +50,14 @@ body {
 
     /* 渐变文本（仅支持的浏览器显示） */
     background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
-    background-size: 200% 200%;
+    background-size: 200%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent; /* 放在最后，仅在支持 clip 的浏览器生效 */
 
     /* 动画背景移动 */
-    background-position: 0% 50%;
     animation: gradientShift 6s ease infinite;
-    transition: transform 0.3s ease;
 
 }
 
@@ -71,12 +76,6 @@ body {
     .logo {
         animation: none;
     }
-}
-
-
-.nav {
-    margin-top: auto;
-    width: 100%;
 }
 
 
@@ -150,31 +149,7 @@ body {
 }
 
 
-.simple-footer {
-    background: #111;
-    padding: 1.5rem 1rem;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-}
-
-
 /* main */  
-.skip-link {
-  /* 默认隐藏：移到屏幕外 */
-  position: absolute;
-  left: -9999px;
-}
-
-.skip-link:focus {
-  /* 按Tab时显示在左上角 */
-  position: fixed;
-  left: 1rem;
-  top: 1rem;
-  background: #000;
-  color: #fff;
-  z-index: 1000;
-}
-
 .main-content {
     padding: 10px;
     max-width: 100%;
@@ -342,6 +317,45 @@ body {
 
 .footer-content a:hover {
     text-decoration: underline;
+}
+
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  left: var(--spacing-sm);
+  top: var(--spacing-sm);
+  width: auto;
+  height: auto;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: #000;
+  color: #fff;
+  z-index: 1000;
+  border-radius: var(--radius-sm);
+}
+
+/* Focus visible styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: var(--focus-outline-width) solid var(--color-primary);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* Current page highlight */
+.nav-item a[aria-current="page"] {
+  font-weight: bold;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
 }
 
 
