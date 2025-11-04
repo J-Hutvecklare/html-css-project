@@ -140,7 +140,7 @@ body {
 
 /* 汉堡菜单动画：变为“X”形状 */
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px); /* 适配 10px 间距 */
+    transform: rotate(45deg) translate(4px, 4px); 
 }
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(2) {
     opacity: 0;

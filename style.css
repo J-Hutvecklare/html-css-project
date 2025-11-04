@@ -7,14 +7,13 @@
 
 :root {
   --color-primary: #007bff;
-  --color-text: #333333;
-  --color-bg: #ffffff;
+  --color-text: #333;
+  --color-bg: #fff;
   --focus-outline-width: 3px;
   --focus-outline-offset: 2px;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --radius-sm: 2px;
+
 }
 
 body {
@@ -29,10 +28,8 @@ body {
   min-height: 66px;
   padding: 0 0.8rem;
   margin: 0 auto;
-  background-color: white;
-  width: 100%;
+  background-color: #fff;
   max-width: 1200px;
-
   /* 吸顶核心 */
   position: sticky;
   top: 0;
@@ -46,22 +43,17 @@ body {
   text-align: center;
   margin-top: 4px;
   display: block;
-
   /* Fallback 颜色（关键！） */
   color: #4d6784;
-
   /* 渐变文本（仅支持的浏览器显示） */
   background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
-  background-size: 200% 200%;
+  background-size: 200%/*200%*/;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent; /* 放在最后，仅在支持 clip 的浏览器生效 */
 
   /* 动画背景移动 */
-  background-position: 0% 50%;
   animation: gradientShift 6s ease infinite;
-  transition: transform 0.3s ease;
   
 }
 
@@ -80,12 +72,6 @@ body {
     .logo {
       animation: none;
     }
-}
-
-
-.nav {
-  margin-top: auto;
-  width: 100%;
 }
 
 
@@ -160,21 +146,6 @@ body {
 }
 
 /*  main */
-.skip-link {
-  /* 默认隐藏：移到屏幕外 */
-  position: absolute;
-  left: -9999px;
-}
-
-.skip-link:focus {
-  /* 按Tab时显示在左上角 */
-  position: fixed;
-  left: 1rem;
-  top: 1rem;
-  background: #000;
-  color: #fff;
-  z-index: 1000;
-}
 
 /* Hero画廊 - 全宽 */
 .hero-gallery {
@@ -263,23 +234,7 @@ body {
   opacity: .95;
 }
 
-.cta-btn {
-  display: inline-block;
-  padding: clamp(.75rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-  background: hsla(0,0%,100%,.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid hsla(0,0%,100%,.4);
-  border-radius: 50px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all .3s ease;
-}
 
-.cta-btn:hover {
-  background: hsla(0,0%,100%,.25);
-  transform: translateY(-2px);
-}
 
 .gallery-nav {
   position: absolute;
@@ -321,10 +276,11 @@ body {
 }
 
 /* 每个点的高亮区间 */
+/*
 .dot-1 { animation: highlight-dot 1s linear forwards; animation-timeline: gallery-timeline; animation-range: 0% 33.33%; }
 .dot-2 { animation: highlight-dot 1s linear forwards; animation-timeline: gallery-timeline; animation-range: 33.33% 66.66%; }
 .dot-3 { animation: highlight-dot 1s linear forwards; animation-timeline: gallery-timeline; animation-range: 66.66% 100%; }
-
+*/
 /* 点击反馈 */
 .nav-dot:hover { background: white !important; transform: scale(1.2) !important; }
 
@@ -342,7 +298,7 @@ body {
   padding: 15px;
 }
 
-.main-article h2 {
+.main-article .title {
   text-align: center;
 }
 
@@ -626,12 +582,18 @@ summary:focus-visible {
 }
 
 
-@media (min-width: 1024px) {
-  .main {
-    grid-template-columns: 250px 1fr 300px; /* 侧边栏 + 内容 + 右侧栏 */
+@media (min-width: 1200px) {
+  .content-grid {
+    grid-template-columns: 250px 1fr 300px;
+    max-width: 1400px;
   }
 
-  .hamburger {
-    display: none;
+  .hero-gallery {
+    max-width: 1400px;
+  }
+
+  .main-article {
+    font-size: 1.125rem;
+    line-height: 1.8;
   }
 }
