@@ -398,3 +398,11 @@ summary:focus-visible {
     }
 
 }
+
+@media (min-width: 1200px) {
+  .header {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+}

@@ -483,3 +483,12 @@ summary:focus-visible {
         display: none;
     }
 }
+
+
+@media (min-width: 1200px) {
+  .header {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+}

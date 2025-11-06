@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /*width/height includes padding and border, without additionally increasing the element size */
 
 }
 
@@ -9,8 +9,8 @@
   --color-primary: #007bff;
   --color-text: #333;
   --color-bg: #fff;
-  --focus-outline-width: 3px;
-  --focus-outline-offset: 2px;
+  --focus-outline-width: 3px; /* Define the focus box thickness variable, used for accessibility keyboard navigation. */
+  --focus-outline-offset: 2px; /* Define focus box and element spacing variables to avoid being too tight. */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --radius-sm: 2px;
@@ -26,7 +26,7 @@ body {
 .header {
   display: flex;
   flex-direction: column;
-  min-height: 66px;
+  min-height: 66px; 
   padding: 0 0.8rem;
   margin: 0 auto;
   background-color: #fff;
@@ -57,7 +57,7 @@ body {
   -webkit-text-fill-color: transparent;
   color: transparent; /* takes effect only in browsers that support clip */
 
-  /* 动画背景移动 */
+  /* animation */
   animation: gradientShift 6s ease infinite;
   
 }
@@ -89,15 +89,15 @@ body {
   left: 0;
   right: 40px;
   padding: 0px;
-  list-style: none;
+  list-style: none; /* Remove the default bullet points from ul */
   z-index: 1; 
 }
 
 
 .nav-item a {  
   display: block; 
-  text-decoration: none;
-  color:#333;
+  text-decoration: none; /* remove underline */
+  color: var(--color-text);
   font-size: 14px;
   padding: 6px 8px;
 }
@@ -105,7 +105,7 @@ body {
 
 .nav-item a:hover {
     font-weight:bold;
-    color: #333;
+    color: var(--color-text);
 
 }
 
@@ -116,7 +116,7 @@ body {
 
 .hamburger {
   display: block;
-  cursor: pointer;
+  cursor: pointer; /* The mouse pointer changes to a hand shape */
   position: absolute;
   bottom: 0;
   right: 10px;
@@ -141,19 +141,21 @@ body {
 
 /* Hamburger Menu Animation: Transforming into an "X" Shape */
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px); 
-}
+    transform: rotate(45deg) translate(4px, 4px);  
+} /* the upper arm of X */
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(2) {
     opacity: 0;
-}
+}  /* Second line transparent hide */
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(3) {
     transform: rotate(-45deg) translate(4px, -4px);
-}
+} /* The lower arm of X */
+
 
 /*  main */
 .main-content {
   margin-top: 10px;
 }
+
 /* Hero gallery- full width */
 .hero-gallery {
   position: relative;
@@ -169,23 +171,22 @@ body {
 .gallery-container {
   display: flex;
   height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-x: auto; /* Horizontal scrolling */
+  overflow-y: hidden; /* No vertical not scrolling */
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  -webkit-scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch; /* iOS Elastic */
+  overscroll-behavior-x: contain; /* Prevent scroll penetration to the outer page */
   scrollbar-width: none;
-  -ms-overflow-style: none; 
 
 
 }
 
+/* Hide scrollbar in Chrome/Edge/Safari */
 .gallery-container::-webkit-scrollbar { display: none; }
 
 .slide {
-  flex: 0 0 100%;
+  flex: 0 0 100%; /* Non-scalable, 100% width container */
   scroll-snap-align: center;
   position: relative;
   height: 100%;
@@ -224,25 +225,17 @@ body {
   align-items: center;
   text-align: center;
   color: white;
-  padding: clamp(1rem, 4vw, 2rem);
+  padding: clamp(1rem, 4vw, 2rem); /* Responsive padding */
   text-shadow: 2px 2px 4px rgba(0,0,0,.9), 1px 1px 2px rgba(0,0,0,.7);
   pointer-events: auto;
 }
 
-.slide-content h1 {
+.img_name {
   font-size: clamp(1rem, 2vw, 2rem);
   font-weight: 700;
   margin-bottom: clamp(.5rem, 2vw, 1rem);
   line-height: 1.2;
 }
-
-.slide-content p {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  max-width: 32rem;
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-  opacity: .95;
-}
-
 
 
 .gallery-nav {
@@ -261,27 +254,13 @@ body {
   width: clamp(8px, 2.5vw, 12px);
   height: clamp(8px, 2.5vw, 12px);
   border-radius: 50%;
-  background: hsla(0,0%,100%,.5);
+  background: hsla(0,0%,100%,.5); /* Semi-transparent white */
   text-decoration: none;
   display: block;
   transition: all .3s ease;
   pointer-events: auto;
-  touch-action: manipulation;
-}
-
-
-/* Scroll timeline */
-@scroll-timeline gallery-timeline {
-  source: selector(.gallery-container);
-  orientation: inline;
-  start: 0%;
-  end: 200%;
-}
-
-/* Highlight Animation */
-@keyframes highlight-dot {
-  from { background: hsla(0,0%,100%,.5); transform: scale(1); }
-  to   { background: white; transform: scale(1.4); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+  touch-action: manipulation; /* Mobile-optimized touch */
+  
 }
 
 
@@ -357,11 +336,16 @@ summary::before {
   transition: transform 0.3s ease;
 }
 
+summary:hover,
+summary:active {
+  background: #e2e6ea;  /* 改变背景色 → 触发动画 */
+}
+
 details[open] summary::before {
   transform: translateY(-50%) rotate(180deg); /* Arrow points downward when expanded */
 }
 
-ul, ol {
+details ul, ol {
   padding-left: 15px;
 }
 
@@ -580,10 +564,12 @@ summary:focus-visible {
 
 
 @media (min-width: 1200px) {
-  .content-grid {
-    grid-template-columns: 250px 1fr 300px;
-    max-width: 1400px;
+  .header {
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
+
 
   .hero-gallery {
     max-width: 1400px;
