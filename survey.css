@@ -46,30 +46,25 @@ body {
     margin-top: 4px;
     display: block;
     color: #4d6784;
-
-    /* 渐变文本（仅支持的浏览器显示） */
     background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
     background-size: 200%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    
-
-    /* 动画背景移动 */
     animation: gradientShift 6s ease infinite;
 
+}
+
+@keyframes gradientShift {
+0%   { background-position: 0% 50%; }
+50%  { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
 }
 
 .logo:hover {
     transform: scale(1.05);
 }
 
-/* 背景动画 */
-@keyframes gradientShift {
-0%   { background-position: 0% 50%; }
-50%  { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
 
 @media (prefers-reduced-motion: reduce) {
     .logo {
@@ -79,8 +74,8 @@ body {
 
 
 .nav-menu {
-    display: none; /* 默认隐藏，等待汉堡菜单触发 */
-    flex-direction: row; /* 垂直排列 */
+    display: none; 
+    flex-direction: row; 
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
@@ -93,7 +88,7 @@ body {
 
 
 .nav-item a {
-    display: block; /* 移动端占满宽度 */
+    display: block; 
     text-decoration: none;
     color:#333;
     font-size: 14px;
@@ -106,9 +101,9 @@ body {
     color: #333;
 }
 
-/* hamburger menu*/
+
 .hamburger-toggle {
-    display: none;  /* hide checkbox */
+    display: none;  
 }
 
 .hamburger {
@@ -131,12 +126,12 @@ body {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 汉堡菜单触发时显示导航 */
+
 .hamburger-toggle:checked ~ .nav-menu {
     display: flex;
 }
 
-/* 汉堡菜单动画：变为“X”形状 */
+
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(1) {
     transform: rotate(45deg) translate(4px, 4px); 
 }
@@ -178,7 +173,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* 表单通用 */
+/* Form */
 .survey-form {
     display: flex;
     flex-direction: column;
@@ -199,7 +194,7 @@ body {
     padding: 0;
 }
 
-/* 输入框组 */
+/* Input group */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -236,7 +231,7 @@ body {
 }
 
     
-/* 单选按钮组 */
+/* Radio button group */
 .radio-group {
     display: flex;
     flex-direction: column;
@@ -258,7 +253,7 @@ body {
     accent-color: #007bff;
 }
 
-/* 提交按钮 */
+/* submit button */
 .submit-wrapper {
     display: flex;
     justify-content: center;
@@ -298,7 +293,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    text-align: center;        /* 文字水平居中 */
+    text-align: center;       
     color: #aaa;
 }
 
@@ -374,14 +369,14 @@ summary:focus-visible {
     }
 
     .nav {
-        margin-top: 0; /* 移除垂直推底效果 */
+        margin-top: 0; 
         width: auto;
     }
 
     .nav-menu {
-        display: inline-flex; /* 水平排列 */
+        display: inline-flex; 
         flex-direction: row;
-        position: static; /* 取消绝对定位 */
+        position: static; 
         width: auto;
         font-size: 1rem;
         gap: 15px;
@@ -392,7 +387,7 @@ summary:focus-visible {
     }
 
     .hamburger {
-        display: none; /* 隐藏汉堡菜单 */
+        display: none; 
     }
 
 }

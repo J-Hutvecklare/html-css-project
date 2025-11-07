@@ -55,15 +55,10 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent; /* takes effect only in browsers that support clip */
 
   /* animation */
   animation: gradientShift 6s ease infinite;
   
-}
-
-.logo:hover {
-  transform: scale(1.05);
 }
 
 /* background animation */
@@ -71,6 +66,10 @@ body {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -264,7 +263,7 @@ body {
 }
 
 
-/* 点击反馈 */
+/* Click Feedback */
 .nav-dot:hover { background: white !important; transform: scale(1.2) !important; }
 
 
@@ -336,10 +335,6 @@ summary::before {
   transition: transform 0.3s ease;
 }
 
-summary:hover,
-summary:active {
-  background: #e2e6ea;  /* 改变背景色 → 触发动画 */
-}
 
 details[open] summary::before {
   transform: translateY(-50%) rotate(180deg); /* Arrow points downward when expanded */
@@ -354,7 +349,7 @@ details ul, ol {
 }
 
 summary:hover {
-  background: rgb(204, 198, 204);
+  background: rgb(167, 235, 189);
 }
 
 .details-content {

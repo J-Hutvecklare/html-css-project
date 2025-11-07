@@ -45,38 +45,32 @@ body {
 
 
 .logo {
-    font-size: 1.35em;  /*1.6em*/
+    font-size: 1.35em;  
     font-weight: bold;
     font-family: 'Arial', sans-serif;
     text-align: center;
-    margin-top: 4px; /*10px*/
+    margin-top: 4px; 
     display: block;
-
-    /* Fallback 颜色（关键！） */
     color: #4d6784;
-
-    /* 渐变文本（仅支持的浏览器显示） */
     background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
     background-size: 200%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent; /* 放在最后，仅在支持 clip 的浏览器生效 */
-
-    /* 动画背景移动 */
     animation: gradientShift 6s ease infinite;
         
 }
 
-.logo:hover {
-    transform: scale(1.05);
-}
 
-        /* 背景动画 */
 @keyframes gradientShift {
     0%   { background-position: 0% 50%; }
     50%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -87,8 +81,8 @@ body {
 
 
 .nav-menu {
-    display: none; /* 默认隐藏，等待汉堡菜单触发 */
-    flex-direction: row; /* 垂直排列 */
+    display: none; 
+    flex-direction: row; 
     justify-content:flex-end;
     position: absolute;
     bottom: 0;
@@ -101,7 +95,7 @@ body {
 
 
 .nav-item a {
-    display: block; /* 移动端占满宽度 */
+    display: block; 
     text-decoration: none;
     color:#333;
     font-size: 14px;
@@ -116,16 +110,16 @@ body {
 }
 
 
-/* hamburger menu*/
+
 .hamburger-toggle {
-    display: none;  /* hide checkbox */
+    display: none;  
 }
 
 .hamburger {
     display: block;
     cursor: pointer;
     position: absolute;
-    bottom: 0;   /* 0 */
+    bottom: 0;   
     right: 10px;
     padding: 8px;  
 }
@@ -142,15 +136,13 @@ body {
 }
 
 
-/* 汉堡菜单触发时显示导航 */
 .hamburger-toggle:checked ~ .nav-menu {
     display: flex;
 }
 
 
-/* 汉堡菜单动画：变为“X”形状 */
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px); /* 适配 10px 间距 */
+    transform: rotate(45deg) translate(4px, 4px); 
 }
 
 .hamburger-toggle:checked ~ .hamburger .hamburger__line:nth-child(2) {
@@ -235,7 +227,7 @@ main {
 }
 
 
-/* 展开状态 */
+/* Expanded state */
 .readmore-toggle:checked ~ .full-content {
     max-height: 2000px;
     padding: 16px 0 20px;
@@ -250,7 +242,7 @@ main {
     display: inline-block;
 }
 
-/* 表格样式 */
+/* Table style */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -359,14 +351,14 @@ summary:focus-visible {
     }
 
     .nav {
-        margin-top: 0; /* 移除垂直推底效果 */
+        margin-top: 0; 
         width: auto;
     }
 
     .nav-menu {
-        display: inline-flex; /* 水平排列 */
+        display: inline-flex; 
         flex-direction: row;
-        position: static; /* 取消绝对定位 */
+        position: static; 
         width: auto;
         font-size: 1rem;
         gap: 15px;
@@ -377,11 +369,10 @@ summary:focus-visible {
     }
 
     .hamburger {
-        display: none; /* 隐藏汉堡菜单 */
+        display: none; 
     }
 
-    
-    /* container */
+ 
     .container {
         padding: 2rem;
     }
@@ -432,7 +423,7 @@ summary:focus-visible {
     .showless-btn,
     .readmore-toggle {
         display: none !important;
-            }
+            }  /* show all content */
 
     .preview::after {
         content: " ";
