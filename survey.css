@@ -45,9 +45,7 @@ body {
     text-align: center;
     margin-top: 4px;
     display: block;
-
-    /* Fallback 颜色（关键！） */
-    color: #007bff;
+    color: #4d6784;
 
     /* 渐变文本（仅支持的浏览器显示） */
     background: linear-gradient(45deg, #1f0cf1, #ef0404, #09f16e);
@@ -83,7 +81,7 @@ body {
 .nav-menu {
     display: none; /* 默认隐藏，等待汉堡菜单触发 */
     flex-direction: row; /* 垂直排列 */
-    justify-content:flex-end;
+    justify-content: flex-end;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -399,7 +397,7 @@ summary:focus-visible {
 
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .header {
     width: 100%;
     max-width: none;

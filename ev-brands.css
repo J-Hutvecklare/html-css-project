@@ -162,32 +162,7 @@ body {
 }
 
 
-.simple-footer {
-    background: #111;
-    padding: 1.5rem 1rem;
-    margin-top: 3rem;
-    font-size: 0.9rem;
-}
-
-
 /* main */
-
-/*.skip-link {
-  /* 默认隐藏：移到屏幕外 */
-  /* position: absolute;
-  /* left: -9999px;
-}*/
-
-/*.skip-link:focus {
-  /* 按Tab时显示在左上角 */
-  /*position: fixed;*/
-  /*left: 1rem;
-  top: 1rem;
-  background: #000;
-  color: #fff;
-  z-index: 1000;
-}*/
-
 
 main {
     flex: 1;
@@ -375,11 +350,6 @@ summary:focus-visible {
         margin-right: auto;
         padding-left: 2rem;
         padding-right: 2rem;
-
-        /* 关键：新增这三行 */
-        position: sticky;     /* 粘性定位 */
-        top: 0;               /* 贴到视口顶部 */
-        z-index: 1000;        /* 确保在内容之上 */
     }
 
     .logo {
@@ -475,20 +445,12 @@ summary:focus-visible {
 }
 
 @media (min-width: 1024px) {
-    .main {
-        grid-template-columns: 250px 1fr 300px; /* 侧边栏 + 内容 + 右侧栏 */
-    }
-
-    .hamburger {
-        display: none;
-    }
-}
-
-
-@media (min-width: 1200px) {
-  .header {
-    width: 100%;
-    max-width: none;
-    margin: 0;
+    .header {
+        width: 100%;
+        max-width: none;
+        margin: 0;
   }
+
 }
+
+

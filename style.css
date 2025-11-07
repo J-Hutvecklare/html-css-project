@@ -563,7 +563,7 @@ summary:focus-visible {
 }
 
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .header {
     width: 100%;
     max-width: none;
