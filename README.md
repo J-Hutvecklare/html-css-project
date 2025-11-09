@@ -83,7 +83,6 @@ CSS Interaction Patterns:
  Features:
  -Expands/collapses navigation menu on mobile
  -Hamburger icon animates into an “X”
- -Fully CSS-driven (no JavaScript)
  -Accessible via keyboard and screen readers
 
  3. Scrolling Gallery (CSS Scroll Snap)
