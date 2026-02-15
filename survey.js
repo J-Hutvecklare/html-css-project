@@ -21,16 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const data = JSON.parse(draft); // 数据解析（对象）
       // 恢复文本/数字输入（DOM 修改：value）
-      form.name.value = data.name || '';
-      form.age.value = data.age || '';
-      form.email.value = data.email || '';
+      const nameInput   = form.querySelector('input[name="name"]');
+      const ageInput    = form.querySelector('input[name="age"]');
+      const emailInput  = form.querySelector('input[name="email"]');
+
+      if (nameInput)  nameInput.value  = data.name  || '';
+      if (ageInput)   ageInput.value   = data.age   || '';
+      if (emailInput) emailInput.value = data.email || '';
 
       // 恢复 radio（DOM 操作：checked 属性）
-      if (data.gender) {
-        const genderRadio = form.querySelector(`input[name="gender"][value="${data.gender}"]`);
-        if (genderRadio) genderRadio.checked = true;
+      const questions = ['gender', 'q1', 'q2', 'q3', 'q4'];
+      questions.forEach(questionName => {
+        if (data[questionName]) {
+        const radio = form.querySelector(
+          `input[name="${questionName}"][value="${data[questionName]}"]`
+        );
+        if (radio) {
+          radio.checked = true;
+        }
       }
-
+      })
+      
       console.log('Draft loaded successfully'); // 调试
     } catch (err) {
       console.error('Failed to parse draft:', err); // 错误处理
@@ -44,8 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
       name: form.name.value.trim(),
       age: form.age.value,
       email: form.email.value.trim(),
-      gender: form.querySelector('input[name="gender"]:checked')?.value || ''
-      // TODO: 加 q1: form.querySelector('input[name="q1"]:checked')?.value || '' 等
+      gender: form.querySelector('input[name="gender"]:checked')?.value || '',
+      q1: form.querySelector('input[name="q1"]:checked')?.value || '',
+      q2: form.querySelector('input[name="q2"]:checked')?.value || '',
+      q3: form.querySelector('input[name="q3"]:checked')?.value || '',
+      q4: form.querySelector('input[name="q4"]:checked')?.value || '',   
     };
 
     localStorage.setItem('evSurveyDraft', JSON.stringify(data)); // 存储
