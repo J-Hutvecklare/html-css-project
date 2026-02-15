@@ -348,6 +348,10 @@ summary:focus-visible {
         margin-top: 0;
     }
 
+    .logo a {
+        text-decoration-line: none;
+    }
+    
     .nav {
         margin-top: 0; 
         width: auto;

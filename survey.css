@@ -16,6 +16,43 @@
 
 }
 
+.error-message {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  transition: opacity 0.3s ease;
+  opacity: 0; /* 初始隐藏，show 时 opacity 1 */
+}
+
+.error-message.show {
+  opacity: 1;
+  animation: shake 0.5s; /* 轻微抖动反馈 */
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+.success-message {
+  padding: 1rem;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-10px); /* 从上滑入 */
+}
+
+.success-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 body {
     font-family: system-ui, -apple-system, sans-serif;
     color: var(--color-text);
@@ -54,6 +91,10 @@ body {
     animation: gradientShift 6s ease infinite;
 
 }
+
+.logo a {
+        text-decoration-line: none;
+    }
 
 @keyframes gradientShift {
 0%   { background-position: 0% 50%; }
