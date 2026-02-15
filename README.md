@@ -152,6 +152,8 @@ html-css project/
 ├── survey.html             # User survey page – collects preferences
 ├── style.css               # Main stylesheet – shared across pages
 ├── README.md               # Project documentation (this file)
+├── slideshow.js            # Gallery
+├── survey.js               # javascript interaction functions in the form
 └── img/                    # Image assets
     ├── chart-1.jpg         # Chart 1: EV Market Growth
     ├── chart-2.jpg         # Chart 2: Key Milestones
@@ -188,6 +190,10 @@ Author
 EV Explorer Project
 
 
+*** Updates 2026.02 ***
+Added JavaScript interactivity:
+- Responsive image gallery slideshow with left/right arrows, bottom dot navigation, and keyboard arrow key support
+- Electric vehicle survey form featuring real-time draft saving to LocalStorage, complete client-side validation, and success feedback on submission
 
 
 
