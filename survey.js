@@ -5,48 +5,53 @@ document.addEventListener('DOMContentLoaded', () => {
   // 获取表单元素（DOM 操作：querySelector）
   const form = document.querySelector('.survey-form');
   if (!form) {
-    console.error('Form element .survey-form not found'); // 调试：健壮性检查
+    console.error('Form not found'); // robust
     return;
   }
 
-  // ------------------ LocalStorage ------------------
-  // 函数：加载草稿数据（数据读取 + DOM 更新）
+  //  *** LocalStorage ***
+  // 加载草稿数据
   function loadDraft() {
     const draft = localStorage.getItem('evSurveyDraft');
     if (!draft) {
-      console.log('No draft data found'); // 调试
+      console.log('No draft found'); // 调试
       return;
     }
 
-    try {
-      const data = JSON.parse(draft); // 数据解析（对象）
-      // 恢复文本/数字输入（DOM 修改：value）
-      const nameInput   = form.querySelector('input[name="name"]');
-      const ageInput    = form.querySelector('input[name="age"]');
-      const emailInput  = form.querySelector('input[name="email"]');
+    const data = JSON.parse(draft); // 数据解析（对象）
+    // 恢复文本/数字输入（DOM修改：value）
+    const nameInput = form.querySelector('input[name="name"]');
+    const ageInput = form.querySelector('input[name="age"]');
+    const emailInput = form.querySelector('input[name="email"]');
 
-      if (nameInput)  nameInput.value  = data.name  || '';
-      if (ageInput)   ageInput.value   = data.age   || '';
-      if (emailInput) emailInput.value = data.email || '';
+    if (nameInput) {
+      nameInput.value = data.name || '';
+    }
 
+    if (ageInput) {
+      ageInput.value = data.age || '';
+    }
+
+    if (emailInput) {
+      emailInput.value = data.email || '';
+    }
+      
       // 恢复 radio（DOM 操作：checked 属性）
-      const questions = ['gender', 'q1', 'q2', 'q3', 'q4'];
-      questions.forEach(questionName => {
-        if (data[questionName]) {
-        const radio = form.querySelector(
-          `input[name="${questionName}"][value="${data[questionName]}"]`
-        );
+    const questions = ['gender', 'q1', 'q2', 'q3', 'q4'];
+    for (let i = 0; i < questions.length; i++) {
+      const questionName = questions[i];
+        
+      if (data[questionName]) {
+        const selector = 'input[name="' + questionName + '"][value="' + data[questionName] + '"]';
+        const radio = form.querySelector(selector);
+          
         if (radio) {
           radio.checked = true;
         }
       }
-      })
-      
-      console.log('Draft loaded successfully'); // 调试
-    } catch (err) {
-      console.error('Failed to parse draft:', err); // 错误处理
-      localStorage.removeItem('evSurveyDraft'); // 清坏数据
     }
+    
+      console.log('Draft loaded successfully'); // 调试
   }
 
   // 函数：保存草稿数据（数据存储）
@@ -55,27 +60,63 @@ document.addEventListener('DOMContentLoaded', () => {
       name: form.name.value.trim(),
       age: form.age.value,
       email: form.email.value.trim(),
-      gender: form.querySelector('input[name="gender"]:checked')?.value || '',
-      q1: form.querySelector('input[name="q1"]:checked')?.value || '',
-      q2: form.querySelector('input[name="q2"]:checked')?.value || '',
-      q3: form.querySelector('input[name="q3"]:checked')?.value || '',
-      q4: form.querySelector('input[name="q4"]:checked')?.value || '',   
+      gender: '', q1: '', q2: '', q3: '', q4: ''
     };
 
-    localStorage.setItem('evSurveyDraft', JSON.stringify(data)); // 存储
+    const genderChecked = form.querySelector('input[name="gender"]:checked');
+    if (genderChecked) data.gender = genderChecked.value;
+    
+    const q1Checked = form.querySelector('input[name="q1"]:checked');
+    if (q1Checked) {
+      data.q1 = q1Checked.value;
+    } else {
+      data.q1 = '';
+    }
+    
+    const q2Checked = form.querySelector('input[name="q2"]:checked');
+    if (q2Checked) {
+      data.q2 = q2Checked.value;
+    } else {
+      data.q2 = '';
+    }
+    
+    const q3Checked = form.querySelector('input[name="q3"]:checked');
+    if (q3Checked) {
+      data.q3 = q3Checked.value;
+    } else {
+      data.q3 = '';
+    }
+    
+    const q4Checked = form.querySelector('input[name="q4"]:checked');
+    if (q4Checked) {
+      data.q4 = q4Checked.value;
+    } else {
+      data.q4 = '';
+    }
+    
+    localStorage.setItem('evSurveyDraft', JSON.stringify(data)); // save draft
     console.log('Draft saved:', data); // 调试
   }
 
   // 事件：实时保存草稿（events: input/change）
   form.addEventListener('input', (e) => {
-    if (e.target.type !== 'radio') saveDraft(); // 只针对文本输入
-  });
-  form.querySelectorAll('input[type="radio"]').forEach(radio => {
-    radio.addEventListener('change', saveDraft); // radio 变化时保存
+    if (e.target.type !== 'radio') {
+      saveDraft(); 
+    }// 只针对文本输入
   });
 
-  // ------------------ Form Validation ------------------
+  const radioButtons = form.querySelectorAll('input[type = "radio"]');
+  
+  for (let i = 0; i < radioButtons.length; i++) {
+    let currentRadio = radioButtons[i];
+    currentRadio.addEventListener('change', function() {
+      saveDraft();
+    });
+  }
+  
+  // *** Form Validation ***
   // 函数：显示错误（DOM 创建/修改 + classList）
+ 
   function showError(input, message) {
     let errorSpan = input.parentElement.querySelector('.error-message');
     if (!errorSpan) { // 动态创建（createElement/append）
@@ -90,10 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 函数：清空所有错误（DOM 修改 + classList）
   function clearErrors() {
-    form.querySelectorAll('.error-message').forEach(span => {
-      span.textContent = '';
-      span.classList.remove('show'); // 移除动画类
-    });
+    const errorMessages = form.querySelectorAll('.error-message');
+    for (var i = 0; i < errorMessages.length; i++) {
+      const currentSpan = errorMessages[i];
+      currentSpan.textContent = '';
+      currentSpan.classList.remove('show');
+    }
   }
 
   // 事件：提交处理（events: submit + preventDefault）
@@ -129,17 +172,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 验证所有 radio 组（循环 + querySelector，事件委托类似但简单版）
     const radioGroups = ['gender', 'q1', 'q2', 'q3', 'q4'];
-    radioGroups.forEach(group => {
-      const selected = form.querySelector(`input[name="${group}"]:checked`);
-      if (!selected) {
-        const firstRadio = form.querySelector(`input[name="${group}"]`);
-        showError(firstRadio.closest('.radio-group'), 'Please select an option'); // 显示在组下（改 parent）
-        isValid = false;
-        if (!firstErrorInput) firstErrorInput = firstRadio;
-      }
-    });
+    // 检查所有单选题组（gender、q1、q2、q3、q4）有没有被选
+    for (let i = 0; i < radioGroups.length; i++) {
+      const groupName = radioGroups[i];
+      const selected = form.querySelector('input[name="' + groupName + '"]:checked');
 
-    if (isValid) {
+    if (!selected) {
+      const firstRadio = form.querySelector('input[name="' + groupName + '"]');
+      showError(firstRadio.closest('.radio-group'), 'Please select an option');
+    
+      isValid = false;
+      if (!firstErrorInput) {
+      firstErrorInput = firstRadio;
+      }
+    }
+  }
+    
+  if (isValid) {
       // 成功状态（DOM 创建 + classList + render 反馈）
       const successDiv = document.createElement('div');
       successDiv.className = 'success-message';
